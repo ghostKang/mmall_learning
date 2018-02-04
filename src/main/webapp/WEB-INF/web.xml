@@ -41,6 +41,7 @@
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--大于0：启动时初始化servlet-->
         <load-on-startup>1</load-on-startup>
     </servlet>
 

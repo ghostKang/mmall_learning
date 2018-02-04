@@ -23,7 +23,6 @@
         <property name="fileEncoding" value="utf-8"/>
     </bean>
 
-
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${db.driverClassName}"/>
         <property name="url" value="${db.url}"/>
@@ -76,6 +75,7 @@
 
     </bean>
 
+    <!--对service层提供dao接口-->
     <bean name="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.mmall.dao"/>
     </bean>
