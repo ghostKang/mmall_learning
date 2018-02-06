@@ -31,7 +31,15 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-
+    <!--注册拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--拦截规则：对某些请求进行拦截-->
+            <mvc:mapping path="/backManager/category/*.do"/>
+            <mvc:mapping path="/backManager/product/*.do"/>
+            <bean class="com.mmall.Interceptor.BackManagerInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!-- 文件上传 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

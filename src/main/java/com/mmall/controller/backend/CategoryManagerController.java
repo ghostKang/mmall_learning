@@ -84,16 +84,17 @@ public class CategoryManagerController {
     @ResponseBody
     public ServerResponse getChildrenParallelCategory(HttpSession session,
                                                       @RequestParam(value = "categoryId",defaultValue = "0") Integer categoryId){
-        User user = (User)session.getAttribute(Const.CURRENT_USER);
+        System.out.println("执行get_Category.do");
+        /*User user = (User)session.getAttribute(Const.CURRENT_USER);
         if(user == null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录");
         }
-        if(iUserService.checkAdminRole(user).isSuccess()){
+        if(iUserService.checkAdminRole(user).isSuccess()){*/
             // 查询子节点的category信息，并且不递归，保持平级
             return iCategoryService.getChildrenParallelCategory(categoryId);
-        }else{
+        /*}else{
             return ServerResponse.createByErrorMessage("无权限操作，需要系统管理员权限");
-        }
+        }*/
     }
 
     /**
