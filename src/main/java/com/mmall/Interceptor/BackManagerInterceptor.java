@@ -45,7 +45,8 @@ public class BackManagerInterceptor implements HandlerInterceptor {
         User user = (User)request.getSession().getAttribute(Const.CURRENT_USER);
         if(user == null){
             // 未登录
-            request.getRequestDispatcher("/NotLogin.jsp").forward(request,response);// 转发
+            request.getRequestDispatcher("/login.jsp").forward(request,response);// 转发
+            //response.sendRedirect("/login.jsp");// 重定向
             return false;
         }
         if(!iUserService.checkAdminRole(user).isSuccess()){
