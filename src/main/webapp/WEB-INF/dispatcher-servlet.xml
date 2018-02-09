@@ -39,6 +39,10 @@
             <mvc:mapping path="/backManager/product/*.do"/>
             <bean class="com.mmall.Interceptor.BackManagerInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/cart/*.do" />
+            <bean class="com.mmall.Interceptor.CartInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!-- 文件上传 -->
