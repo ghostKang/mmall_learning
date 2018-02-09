@@ -41,6 +41,7 @@
         </mvc:interceptor>
         <mvc:interceptor>
             <mvc:mapping path="/cart/*.do" />
+            <mvc:mapping path="/shipping/*.do"/>
             <bean class="com.mmall.Interceptor.CartInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
