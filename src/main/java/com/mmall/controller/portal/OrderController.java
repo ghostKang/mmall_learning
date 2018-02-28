@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -71,7 +72,34 @@ public class OrderController {
         return iOrderService.getOrderCartProduct(user.getId());
     }
 
+    /**
+     * 订单详情
+     * @param session
+     * @param orderNo
+     * @return
+     */
+    @RequestMapping(value = "detail.do")
+    @ResponseBody
+    public ServerResponse orderDetail(HttpSession session,Long orderNo){
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        return iOrderService.getOrderDetail(user.getId(),orderNo);
+    }
 
+    /**
+     * 订单列表
+     * @param session
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    @RequestMapping(value = "list.do")
+    @ResponseBody
+    public ServerResponse list(HttpSession session,
+                               @RequestParam(value = "pageNum",defaultValue = "1")int pageNum,
+                               @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        return iOrderService.getOrderList(user.getId(),pageNum,pageSize);
+    }
 
 
 

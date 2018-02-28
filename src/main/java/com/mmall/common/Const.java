@@ -60,7 +60,7 @@ public class Const {
         CANCELED(10,"已取消"),
         NO_PAY(20,"未支付"),
         PAID(30,"已付款"),
-        SHIPED(40,"已发货"),
+        SHIPPED(40,"已发货"),
         ORDER_SUCCESS(50,"订单完成"),
         ORDER_CLOSE(60,"订单关闭");
         private String value;
